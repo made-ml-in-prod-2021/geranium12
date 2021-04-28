@@ -1,0 +1,3 @@
+# @package _group_
+raw_data_path: "data/raw/heart.csv"
+eda_dir: "reports/eda"
