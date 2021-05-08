@@ -1,7 +1,8 @@
 import pytest
 import os
 
-from make_fake_dataset import make_fake_dataset
+
+from data.make_fake_dataset import make_fake_dataset
 
 
 @pytest.fixture()
