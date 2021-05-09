@@ -1,3 +1,8 @@
 # @package _group_
-raw_data_path: "data/raw/heart.csv"
-eda_dir: "reports/eda"
+raw_data_path: "data\\raw\\train.csv"
+metric_path: "reports\\models\\metrics.txt"
+model_path: "reports\\models\\model.pkl"
+preds_path: "reports\\models\\predictions.csv"
+test_data_path: "data\\raw\\test.csv"
+eda_dir: "reports\\eda"
+target_column: "target"

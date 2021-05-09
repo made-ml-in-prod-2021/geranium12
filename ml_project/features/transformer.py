@@ -20,6 +20,5 @@ class MinMaxTransformer(BaseEstimator, TransformerMixin):
     def transform(self, data: pd.DataFrame) -> pd.DataFrame:
         if not self.fitted:
             raise NotFittedError("MinMaxTransformer is not fitted!")
-        print(type((data - self.min) / (self.max - self.min)))
 
         return (data - self.min) / (self.max - self.min)
