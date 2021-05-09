@@ -20,7 +20,9 @@ from ml_project.utils import get_root_path
 logger = logging.getLogger(__name__)
 
 
-def train_model(features: pd.DataFrame, target: pd.Series, cfg: Config) -> object:
+def train_model(
+        features: pd.DataFrame, target: pd.Series, cfg: Config
+) -> object:
     logger.info("Training model...")
     model = hydra.utils.instantiate(cfg.model).fit(features, target)
     return model
@@ -33,7 +35,7 @@ def predict_model(model: object, features: pd.DataFrame) -> pd.DataFrame:
 
 
 def evaluate_model(
-        model: object, features: pd.DataFrame, target: pd.Series
+    model: object, features: pd.DataFrame, target: pd.Series
 ) -> Dict[str, float]:
     logger.info("Evaluating data...")
     return {
@@ -70,8 +72,10 @@ def train_pipeline(cfg: Config) -> None:
     )
     logger.debug(f"Data shape: {data.shape}")
 
-    train_features, train_target = target_split(train_data, cfg.main.target_column)
-    val_features, val_target = target_split(val_data, cfg.main.target_column)
+    train_features, train_target = target_split(train_data,
+                                                cfg.main.target_column)
+    val_features, val_target = target_split(val_data,
+                                            cfg.main.target_column)
 
     transformer = MinMaxTransformer().fit(train_features)
     train_features = transformer.transform(train_features)
@@ -80,7 +84,6 @@ def train_pipeline(cfg: Config) -> None:
     logger.info(f"Model: {cfg.model['_target_']}")
     model = train_model(train_features, train_target, cfg)
     pipeline = make_pipeline(model, transformer)
-    val_predictions = predict_model(pipeline, val_features)
     metrics = evaluate_model(model, val_features, val_target)
     logger.debug(metrics)
 

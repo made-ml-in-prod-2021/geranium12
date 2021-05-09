@@ -37,7 +37,7 @@ def predict_pipeline(cfg: Config) -> None:
     model = pipeline["model"]
     data = read_data(get_root_path(cfg.main.test_data_path))
     transformed_data = transformer.transform(data)
-    predictions = predict_model(model, data)
+    predictions = predict_model(model, transformed_data)
     save_predictions(predictions, cfg.main.preds_path)
     logger.info("Predict pipeline has finished!")
 

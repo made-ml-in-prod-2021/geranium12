@@ -73,7 +73,8 @@ def svm_model() -> object:
 
 @pytest.fixture()
 def simple_config(
-        model_path, dataset_path, target_column, metric_path, preds_path, test_data_path
+        model_path, dataset_path, target_column,
+        metric_path, preds_path, test_data_path
 ) -> Config:
     try:
         initialize(config_path="../configs", job_name="test_app")

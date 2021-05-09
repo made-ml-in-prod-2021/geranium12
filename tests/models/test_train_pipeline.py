@@ -5,8 +5,6 @@ import json
 import os
 import pickle
 
-from hydra.experimental import initialize, compose
-
 from ml_project.configs import Config
 from models.train_pipeline import train_pipeline
 
