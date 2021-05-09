@@ -10,7 +10,7 @@ import pandas as pd
 from ml_project.configs import Config
 from ml_project.data import read_data
 from ml_project.utils import get_root_path
-from models.train_pipeline import predict_model
+from ml_project.models.train_pipeline import predict_model
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ def predict_pipeline(cfg: Config) -> None:
     logger.info("Predict pipeline has finished!")
 
 
-@hydra.main(config_path="../configs", config_name="config")
+@hydra.main(config_path="../../configs", config_name="config")
 def main(cfg: Config):
     predict_pipeline(cfg)
 

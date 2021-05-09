@@ -91,7 +91,7 @@ def train_pipeline(cfg: Config) -> None:
     save_model(pipeline, cfg.main.model_path)
 
 
-@hydra.main(config_path="../configs", config_name="config")
+@hydra.main(config_path="../../configs", config_name="config")
 def main(cfg: Config):
     train_pipeline(cfg)
 
