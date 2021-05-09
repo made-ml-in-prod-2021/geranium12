@@ -26,7 +26,7 @@ python -m ml_project.visualization.eda
 ```
 
 ### Dataset:
-Dataset \link{https://www.kaggle.com/ronitf/heart-disease-uci}{sfd} was used for the project. 
+Dataset [Heart Disease UCI](https://www.kaggle.com/ronitf/heart-disease-uci) is used for the project. 
 Data must be in .csv format in data/raw directory.
 
 ### Hydra Configuration:
