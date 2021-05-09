@@ -11,8 +11,8 @@ pip install -r requirements.txt
 
 ### Usage:
 ```
-python -m models.train_pipeline
-python -m models.predict_pipeline
+python -m ml_project.models.train_pipeline
+python -m ml_project.models.predict_pipeline
 ```
 
 ### Test:
