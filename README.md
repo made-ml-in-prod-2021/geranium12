@@ -1,6 +1,29 @@
 ml_project
 ==============================
 
+### Installation:
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Usage:
+```
+python -m models.train_pipeline
+python -m models.predict_pipeline
+```
+
+### Test:
+```
+pytest tests/
+```
+
+### Report creation:
+```
+python -m ml_project.visualization.eda
+```
+
 Production-ready project for heart disease classification
 
 Project Organization
