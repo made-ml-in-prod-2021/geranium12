@@ -1,4 +1,5 @@
-ml_project
+
+Production-ready project for heart disease classification
 ==============================
 
 ### Installation:
@@ -24,7 +25,14 @@ pytest tests/
 python -m ml_project.visualization.eda
 ```
 
-Production-ready project for heart disease classification
+### Dataset:
+Dataset \link{https://www.kaggle.com/ronitf/heart-disease-uci}{sfd} was used for the project. 
+Data must be in .csv format in data/raw directory.
+
+### Hydra Configuration:
+Configs are in configs/ directory.
+All Hydra configs must be described as dataclasses in ml_project/config/. 
+
 
 Project Organization
 ------------
@@ -33,29 +41,19 @@ Project Organization
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
+    ├── ml_project                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
@@ -63,14 +61,15 @@ Project Organization
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
+    |   |   └── transformer.py
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
+    │   │   ├── predict_pipeline.py
+    │   │   └── train_pipeline.py
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │       └── eda.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
