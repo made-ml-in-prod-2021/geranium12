@@ -11,7 +11,7 @@ from ml_project.data import read_data
 from tests.data.make_fake_dataset import make_fake_dataset
 
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def dataset_path(tmpdir) -> str:
     path = tmpdir.mkdir("data").join("train.csv")
     data = make_fake_dataset()
@@ -19,16 +19,16 @@ def dataset_path(tmpdir) -> str:
     return path
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def target_column() -> str:
     return "target"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def dataset(dataset_path: str) -> pd.DataFrame:
     return read_data(dataset_path)
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def split_config() -> SimpleSplitConfig:
     return SimpleSplitConfig(train_size=0.8)
