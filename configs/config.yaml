@@ -1,0 +1,5 @@
+defaults:
+  - main: main_config
+  - eda: eda_config
+  - split: split_config
+  - model: svm_config

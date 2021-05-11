@@ -1,0 +1,27 @@
+name: GitHub Actions Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install requirements
+      run: |
+        python -m pip install --upgrade pip
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install pkutils
+        pip install -r requirements.txt
+    - name: Lint
+      run: |
+        source .venv/bin/activate
+        flake8 ml_project
+        flake8 tests
+    - name: Test
+      run: |
+        source .venv/bin/activate
+        pytest tests/

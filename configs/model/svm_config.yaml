@@ -1,0 +1,5 @@
+# @package _group_
+_target_: sklearn.svm.SVC
+C: 1.5
+kernel: "rbf"
+degree: 3
