@@ -12,8 +12,8 @@ from tests.data.make_fake_dataset import make_fake_dataset
 
 
 @pytest.fixture()
-def dataset_path() -> str:
-    path = os.path.join(os.path.dirname(__file__), "data/train.csv")
+def dataset_path(tmpdir) -> str:
+    path = tmpdir.mkdir("data").join("train.csv")
     data = make_fake_dataset()
     data.to_csv(path)
     return path
