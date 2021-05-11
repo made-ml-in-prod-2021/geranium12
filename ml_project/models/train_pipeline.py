@@ -3,7 +3,6 @@
 
 import json
 import logging.config
-import pickle
 import typing
 from typing import Dict
 
@@ -15,6 +14,7 @@ from ml_project.configs import Config
 from ml_project.configs.split_config import SimpleSplitConfig
 from ml_project.data import read_data, train_test_split
 from ml_project.features import target_split, MinMaxTransformer
+from ml_project.models.io import save_model
 from ml_project.utils import get_root_path
 
 logger = logging.getLogger(__name__)
@@ -35,7 +35,7 @@ def predict_model(model: object, features: pd.DataFrame) -> pd.DataFrame:
 
 
 def evaluate_model(
-    model: object, features: pd.DataFrame, target: pd.Series
+        model: object, features: pd.DataFrame, target: pd.Series
 ) -> Dict[str, float]:
     logger.info("Evaluating data...")
     return {
@@ -53,14 +53,6 @@ def save_metrics(metrics: Dict, path: str) -> str:
     path = get_root_path(path)
     with open(path, "w") as f:
         json.dump(metrics, f)
-    return path
-
-
-def save_model(model: object, path: str) -> str:
-    logger.info("Saving model...")
-    path = get_root_path(path)
-    with open(path, "wb") as f:
-        pickle.dump(model, f)
     return path
 
 

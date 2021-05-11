@@ -2,25 +2,17 @@
 # -*- coding: utf-8 -*-
 
 import logging.config
-import pickle
 
 import hydra
 import pandas as pd
 
 from ml_project.configs import Config
 from ml_project.data import read_data
-from ml_project.utils import get_root_path
+from ml_project.models.io import load_model
 from ml_project.models.train_pipeline import predict_model
+from ml_project.utils import get_root_path
 
 logger = logging.getLogger(__name__)
-
-
-def load_model(path: str) -> object:
-    logger.info("Loading model...")
-    path = get_root_path(path)
-    with open(path, "rb") as f:
-        model = pickle.load(f)
-    return model
 
 
 def save_predictions(predictions: pd.DataFrame, path: str) -> str:
