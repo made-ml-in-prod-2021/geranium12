@@ -10,7 +10,7 @@ import requests
 
 HOST = os.environ.get("HOST", default="0.0.0.0")
 PORT = os.environ.get("PORT", default="8000")
-DATA_PATH = os.environ.get("DATA_PATH", default="../data/raw/test.csv")
+DATA_PATH = os.environ.get("DATA_PATH", default="data/raw/test.csv")
 
 logger = logging.getLogger(__name__)
 
