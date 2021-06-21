@@ -4,6 +4,7 @@
 import logging
 import os
 import pickle
+import time
 from typing import List, Optional
 
 import pandas as pd
@@ -47,6 +48,7 @@ def main():
 @app.get("/health")
 def health() -> bool:
     logger.info("Checking health status...")
+    time.sleep(120)
     raise Exception
     return not (model is None or transformer is None)
 
