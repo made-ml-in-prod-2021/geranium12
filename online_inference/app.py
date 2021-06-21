@@ -47,6 +47,7 @@ def main():
 @app.get("/health")
 def health() -> bool:
     logger.info("Checking health status...")
+    raise Exception
     return not (model is None or transformer is None)
 
 
